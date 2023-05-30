@@ -1,20 +1,15 @@
-const path = require("path");
-const express = require("express");
-const cors = require("cors");
-const morgan = require("morgan");
-const axios = require("axios");
+import path from "path";
+import express from "express";
+import axios from "axios";
+import morgan from "morgan";
+import itemRoutes from "./routes/Item";
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
-);
 app.use(morgan("combined"));
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "..", "public")));
+app.use("/api/item", itemRoutes);
 
 app.get("/search/:searchWord", async (req, res) => {
   await axios
@@ -36,4 +31,4 @@ app.get("/*", (req, res) => {
   res.status(404).json("I am here");
 });
 
-module.exports = app;
+export default app;
