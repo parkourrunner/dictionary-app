@@ -5,19 +5,19 @@ import { FcSpeaker } from "react-icons/fc";
 import { useState } from "react";
 
 function App() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState(null);
   const [searchWord, setSearchWord] = useState("");
 
   function getMeaning() {
     axios
-      .get(`https://api.dictionaryapi.dev/api/v2/entries/en_US/${searchWord}`)
+      .get(`http://localhost:8000/search/${searchWord}`)
       .then((response) => {
-        setData(response.data[0]);
+        setData(response.data);
       })
       .catch((err) => {
-        if (err.response.status === 404) {
+        if (err.response.data.status === 404) {
           alert("Word not found");
-          setData("");
+          setData(null);
         }
       });
   }
