@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cluster": "pm2 start src/server.js -i max"
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
