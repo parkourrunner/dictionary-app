@@ -2,7 +2,7 @@ import path from "path";
 import express from "express";
 import axios from "axios";
 import morgan from "morgan";
-import itemRoutes from "./routes/Item";
+import itemRoutes from "./routes/item.js";
 
 const app = express();
 
