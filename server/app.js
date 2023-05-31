@@ -2,14 +2,14 @@ import path from "path";
 import express from "express";
 import axios from "axios";
 import morgan from "morgan";
-import itemRoutes from "./routes/item.js";
+import wordRoutes from "./routes/word.js";
 
 const app = express();
 
 app.use(morgan("combined"));
 
 app.use(express.json());
-app.use("/api/item", itemRoutes);
+app.use("/api/word", wordRoutes);
 
 app.get("/search/:searchWord", async (req, res) => {
   await axios

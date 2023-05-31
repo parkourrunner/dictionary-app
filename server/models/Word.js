@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-const ItemSchema = new mongoose.Schema(
+const WordSchema = new mongoose.Schema(
   {
-    itemId: {
+    word_id: {
       type: String,
       required: true,
     },
@@ -10,4 +10,4 @@ const ItemSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Item", ItemSchema);
+export default mongoose.model("Word", WordSchema);
